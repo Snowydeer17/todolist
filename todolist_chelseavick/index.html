@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vanilla JS To-Do</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main class="app" aria-label="To-do app">
+    <header class="header">
+        <h1>To-Do</h1>
+        <p class="subtle">Vanilla JS • localStorage • filters</p>
+    </header>
+
+    <section class="card" aria-label="Add a task">
+        <form id="todo-form" class="row">
+            <label class="sr-only" for="todo-input">New task</label>
+            <input
+                    id="todo-input"
+                    name="todo"
+                    type="text"
+                    placeholder="Add a task…"
+                    autocomplete="off"
+                    maxlength="120"
+                    required
+            />
+            <button type="submit">Add</button>
+        </form>
+
+        <div class="toolbar" aria-label="Filters and actions">
+            <div class="filters" role="tablist" aria-label="Task filters">
+                <button type="button" class="filter is-active" data-filter="all">All</button>
+                <button type="button" class="filter" data-filter="active">Active</button>
+                <button type="button" class="filter" data-filter="completed">Completed</button>
+            </div>
+
+            <button type="button" id="clear-completed" class="danger">
+                Clear completed
+            </button>
+        </div>
+
+        <div class="meta">
+            <span id="count">0 items</span>
+            <span id="status" class="subtle" aria-live="polite"></span>
+        </div>
+    </section>
+
+    <section class="card" aria-label="Task list">
+        <ul id="todo-list" class="list"></ul>
+        <p id="empty" class="empty">No tasks yet. Add your first one.</p>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
